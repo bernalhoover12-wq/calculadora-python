@@ -1,0 +1,67 @@
+# ==========================================
+# CALCULADORA EN PYTHON
+# Archivo: index.py
+# ==========================================
+
+def sumar(a, b):
+    return a + b
+
+def restar(a, b):
+    return a - b
+
+def multiplicar(a, b):
+    return a * b
+
+def dividir(a, b):
+    if b == 0:
+        return "Error: No se puede dividir entre cero."
+    return a / b
+
+def mostrar_menu():
+    print("\n==============================")
+    print("      CALCULADORA PYTHON")
+    print("==============================")
+    print("1. Sumar")
+    print("2. Restar")
+    print("3. Multiplicar")
+    print("4. Dividir")
+    print("5. Salir")
+    print("==============================")
+
+while True:
+    mostrar_menu()
+
+    opcion = input("Seleccione una opción (1-5): ")
+
+    if opcion == "5":
+        print("Gracias por utilizar la calculadora.")
+        break
+
+    if opcion in ["1", "2", "3", "4"]:
+        try:
+            num1 = float(input("Ingrese el primer número: "))
+            num2 = float(input("Ingrese el segundo número: "))
+
+            if opcion == "1":
+                resultado = sumar(num1, num2)
+                operacion = "+"
+
+            elif opcion == "2":
+                resultado = restar(num1, num2)
+                operacion = "-"
+
+            elif opcion == "3":
+                resultado = multiplicar(num1, num2)
+                operacion = "*"
+
+            elif opcion == "4":
+                resultado = dividir(num1, num2)
+                operacion = "/"
+
+            print(f"\nResultado: {num1} {operacion} {num2} = {resultado}")
+
+        except ValueError:
+            print("Error: Debe ingresar únicamente números.")
+
+    else:
+        print("Opción no válida. Intente nuevamente.")
